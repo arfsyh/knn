@@ -1,0 +1,208 @@
+<!------ Include the above in your HEAD tag ---------->
+<title>Reviewer LSA/LSI</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+	#customers {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	#customers td, #customers th {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+
+	#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+	#customers tr:hover {background-color: #ddd;}
+
+	#customers th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+</style>
+<nav class="navbar navbar-dark bg-dark ">
+    <div class="container">
+  <ul class="nav  ">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Datasets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="proses">Proccess</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="test">Testing</a>
+    </li>
+  </ul>
+</div>
+</nav>
+<div class="container">
+    
+	<h2>Proccess Dataset</h2>
+	<p></p>
+  
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+		  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Data Cleaning</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false">Data Selection</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu2" role="tab" aria-controls="contact" aria-selected="false">Data Transform</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu3" role="tab" aria-controls="knn" aria-selected="false">KNN Predic</a>
+		  </li>
+	  </ul>
+	  <div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				<br>
+				<h3><a>Jumlah DataCleaning : </a>{{ countDataset }}</h3>
+				<br>
+				<div class="container">
+					<div class="row" >
+						<div class="col-sm-6" id="customers" >
+							{% for a in ses %}
+								{{ a | safe }}
+							{% endfor %}
+						</div></div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="profile-tab">
+				<br>
+				<div class="container">
+					<div class="row" >
+						<div class="col-sm-6" id="customers" >
+							{% for s in selection %}
+								{{ s | safe }}
+							{% endfor %}
+						</div></div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="menu2" role="tabpanel" aria-labelledby="contact-tab"><br>
+				<div class="container">
+					<div class="row" >
+						<div class="col-sm-6" id="customers" >
+							{% for tr in transform %}
+								{{ tr | safe }}
+							{% endfor %}
+						</div></div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="menu3" role="tabpanel" aria-labelledby="knn-tab">
+				<br>
+				<div class="container">
+					<ul class="nav nav-tabs" id="myTab1" role="tablist">
+						<li class="nav-item">
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#train" role="tab" aria-controls="train" aria-selected="true">Data Training</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#test" role="tab" aria-controls="test" aria-selected="false">Data Testing</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#result" role="tab" aria-controls="test" aria-selected="false">Result</a>
+						</li>
+					</ul>
+					<br>
+					<div class="tab-content" id="myTabContent1">
+						<div class="tab-pane fade show active" id="train" role="tabpanel" aria-labelledby="train-tab">
+							<div class="container">
+								<div class="row" >
+									<div class="col-sm-6" id="customers" >
+										
+									<h6>Jumlah Data Training : {{ jumlahTraining | safe }} </h6><br>
+										{% for t in train %}
+											{{ t | safe }}
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+				
+						<div class="tab-pane fade" id="test" role="tabpanel" aria-labelledby="test-tab">
+							<div class="container">
+								<h6>Jumlah Data Testing : {{ jumlahTesting | safe }} </h6><br>
+								<div class="row" >
+									<div class="col-sm-6" id="customers">
+										{% for t in test %}
+											{{ t | safe }}
+										{% endfor %}
+									</div>
+								
+									
+								</div>
+								</div>
+
+						</div>
+						<div class="tab-pane fade" id="result" role="tabpanel" aria-labelledby="test-tab">
+							
+							<div class="container">
+								<div class="container">
+									<h6>Nilai Akurasi : {{ accuracy | safe }} </h6>
+								</div>
+								<br>
+								<div class="container">
+									<div class="row" >
+										<div class="col-sm-2" id="customers" ></div>
+										<div class="col-sm-2" id="customers" >
+												<h5>True</h5>
+										</div>
+										<div class="col-sm-2" id="customers" >
+											<h5><h5>Fals</h5>
+										</div>
+									</div>
+									<div class="row" >
+										<div class="col-sm-2" id="customers" >
+											<h5>Positive</h5>
+										</div>
+										<div class="col-sm-2" id="customers" >
+											{{ matrix[0][0] | safe }}
+										</div>
+										<div class="col-sm-2" id="customers" >
+											{{ matrix[0][1] | safe }}
+										</div>
+									</div>
+									<div class="row" >
+										<div class="col-sm-2" id="customers" >
+											<h5>Negative</h5>
+										</div>
+										<div class="col-sm-2" id="customers" >
+											{{ matrix[1][0] | safe }}
+										</div>
+										<div class="col-sm-2" id="customers" >
+											{{ matrix[1][1] | safe }}
+										</div>
+									</div>
+									<br>
+									<br>
+									<div class="row" >
+										<div class="col-sm-4" id="customers" >
+											<h5><b>Keterangan</b></h5>
+										</div>
+										<div class="col-sm-6" id="customers" >
+											<p><b>TP : </b> Aktual Order, Prediksi Order</p>
+											<p><b>FP : </b> Aktual Order, Prediksi Tidak Order</p>
+											<p><b>TN : </b> Aktual Tidak Order, Prediksi Order</p>
+											<p><b>FN : </b> Aktual Tidak Order, Prediksi Tidak Order</p>
+										</div>
+									</div>
+	
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>

@@ -1,0 +1,75 @@
+<!------ Include the above in your HEAD tag ---------->
+<title>Reviewer LSA/LSI</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script sec="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+<style>
+ 
+	#customers {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	#customers td, #customers th {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+
+	#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+	#customers tr:hover {background-color: #ddd;}
+
+	#customers th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+</style>
+  <nav class="navbar navbar-dark bg-dark ">
+    <div class="container">
+  <ul class="nav  ">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Datasets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="proses">Proccess</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="test">Testing</a>
+    </li>
+  </ul>
+</div>
+</nav>
+
+<div class="container">
+    <a href="index.php"><h1>KNN Data Apotik UAD</h1></a>
+    <h3><a>Jumlah Dataset : </a>{{ countDataset }}</h3>
+    <br>
+        {% for a in ses %}
+          {{ a | safe }}
+        {% endfor %}
+
+    <div class="row" >
+      <div class="col-sm-6"  >
+        
+       
+</div>
+</div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+  $(table).DataTable( {
+    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+  } );
+} );
+</script>
